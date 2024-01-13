@@ -12,6 +12,7 @@ class Program
         bool releaseRenewFlag = false;
 
         Console.WriteLine("Press F8 to toggle ipconfig /release and /renew.", Console.ForegroundColor = ConsoleColor.DarkBlue);
+        Console.WriteLine("\n", Console.ForegroundColor = ConsoleColor.White);
 
         while (true)
         {
@@ -32,6 +33,7 @@ class Program
                     ExecuteCommand("ipconfig /renew");
                     Console.WriteLine("ipconfig /renew executed.", Console.ForegroundColor = ConsoleColor.Magenta);
                 }
+                Console.WriteLine("\n", Console.ForegroundColor = ConsoleColor.White);
 
                 // Wait for the key release to avoid multiple executions
                 while (GetAsyncKeyState((int)ConsoleKey.F8) < 0) { }
@@ -46,9 +48,9 @@ class Program
         {
             FileName = "cmd.exe",
             RedirectStandardInput = true,
-            RedirectStandardOutput = true,
-            CreateNoWindow = true,
-            //UseShellExecute = false
+            RedirectStandardOutput = false,
+            CreateNoWindow = false,
+            UseShellExecute = false,
         };
 
         Process process = new Process { StartInfo = processStartInfo };
