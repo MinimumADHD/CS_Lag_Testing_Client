@@ -16,13 +16,10 @@ class Program
 
         while (true)
         {
-            // Check if F8 key is pressed
             if (GetAsyncKeyState((int)ConsoleKey.F8) < 0)
             {
-                // Toggle the flag
                 releaseRenewFlag = !releaseRenewFlag;
 
-                // Execute ipconfig /release or /renew based on the flag
                 if (releaseRenewFlag)
                 {
                     ExecuteCommand("ipconfig /release");
@@ -35,7 +32,6 @@ class Program
                 }
                 Console.WriteLine("\n", Console.ForegroundColor = ConsoleColor.White);
 
-                // Wait for the key release to avoid multiple executions
                 while (GetAsyncKeyState((int)ConsoleKey.F8) < 0) { }
             }
         }
